@@ -1,0 +1,282 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prysm Finder</title>
+  <style>
+    :root {
+      --bg: #09090e;
+      --panel: #14141e;
+      --purple: #9b5cff;
+      --text: #f6f3ff;
+      --muted: #aaa6bb;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Inter, Arial, sans-serif;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 20px 7%;
+      border-bottom: 1px solid #262333;
+      position: sticky;
+      top: 0;
+      background: #09090eee;
+      backdrop-filter: blur(14px);
+      z-index: 5;
+    }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    .logo span { color: var(--purple); }
+
+    nav {
+      display: flex;
+      gap: 22px;
+      flex-wrap: wrap;
+    }
+
+    a {
+      color: var(--muted);
+      text-decoration: none;
+    }
+
+    a:hover { color: var(--purple); }
+
+    main {
+      max-width: 1150px;
+      margin: auto;
+      padding: 45px 24px;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 75px 15px 65px;
+      background: radial-gradient(ellipse at top, #54249b40, transparent 65%);
+    }
+
+    .tag {
+      color: #c8a8ff;
+      font-size: 12px;
+      letter-spacing: 3px;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-size: clamp(38px, 7vw, 72px);
+      margin: 20px 0;
+      line-height: 1.05;
+    }
+
+    h1 span { color: var(--purple); }
+
+    p { color: var(--muted); line-height: 1.7; }
+
+    .button {
+      display: inline-block;
+      border: 0;
+      border-radius: 10px;
+      padding: 13px 20px;
+      background: var(--purple);
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .button:hover {
+      background: #8140e8;
+      color: white;
+    }
+
+    .secondary {
+      background: #20192e;
+      border: 1px solid #583b80;
+    }
+
+    .actions {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    section { padding: 45px 0; }
+
+    h2 { font-size: 28px; margin-bottom: 8px; }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 25px;
+    }
+
+    .card {
+      background: var(--panel);
+      padding: 24px;
+      border: 1px solid #292538;
+      border-radius: 16px;
+    }
+
+    .card h3 { margin-top: 0; }
+
+    .price {
+      font-size: 30px;
+      font-weight: 800;
+      margin: 15px 0;
+    }
+
+    .price small {
+      font-size: 14px;
+      color: var(--muted);
+      font-weight: normal;
+    }
+
+    input {
+      width: 100%;
+      padding: 15px;
+      background: var(--panel);
+      color: white;
+      border: 1px solid #383047;
+      border-radius: 10px;
+      margin-top: 20px;
+      font-size: 16px;
+    }
+
+    .empty {
+      border: 1px dashed #49405d;
+      border-radius: 14px;
+      padding: 30px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      border-top: 1px solid #262333;
+    }
+
+    @media (max-width: 600px) {
+      header { align-items: flex-start; flex-direction: column; }
+      nav { gap: 15px; }
+      main { padding: 25px 17px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a class="logo" href="#home">PRYSM<span> FINDER</span></a>
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#finder">Finder</a>
+      <a href="#slots">Hourly Slots</a>
+      <a href="#wallet">Wallet</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="tag">YOUR BRAINROT FINDER</div>
+      <h1>FIND YOUR NEXT<br><span>BRAINROT.</span></h1>
+      <p>Discover listings and explore Prysm Finder.</p>
+      <div class="actions">
+        <a class="button" href="#finder">Explore Finder</a>
+        <a class="button secondary" href="#slots">Browse Slots</a>
+      </div>
+    </section>
+
+    <section id="finder">
+      <h2>🔎 Finder</h2>
+      <p>Search listings when live listing data is connected.</p>
+      <input id="search" placeholder="Search for a brainrot..." aria-label="Search listings">
+      <div class="empty" id="results">
+        <h3>No live listings yet</h3>
+        <p>Listings will appear here when a real data source is connected.</p>
+      </div>
+    </section>
+
+    <section id="slots">
+      <h2>Hourly Slots</h2>
+      <p>Choose a slot based on your needs.</p>
+      <div class="grid">
+        <article class="card">
+          <h3>👑 Master</h3>
+          <div class="price">$15<small> / hour</small></div>
+          <p>Master tier hourly slot.</p>
+          <button class="button" onclick="showSetup()">Rent Slot</button>
+        </article>
+        <article class="card">
+          <h3>💎 Rich</h3>
+          <div class="price">$7<small> / hour</small></div>
+          <p>Rich tier hourly slot.</p>
+          <button class="button" onclick="showSetup()">Rent Slot</button>
+        </article>
+        <article class="card">
+          <h3>🟣 Poor</h3>
+          <div class="price">$5<small> / hour</small></div>
+          <p>Poor tier hourly slot.</p>
+          <button class="button" onclick="showSetup()">Rent Slot</button>
+        </article>
+      </div>
+      <p id="notice" role="status"></p>
+    </section>
+
+    <section id="wallet">
+      <h2>My Wallet</h2>
+      <div class="card">
+        <h3>Account Balance</h3>
+        <div class="price">$0.00</div>
+        <p>This is a visual placeholder, not a real account balance.</p>
+        <button class="button" onclick="showSetup()">Set Up Wallet</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="logo">PRYSM<span> FINDER</span></div>
+    <p>Find more. Do more.</p>
+    <p>© 2026 Prysm Finder</p>
+  </footer>
+
+  <script>
+    function showSetup() {
+      document.getElementById("notice").textContent =
+        "This feature needs a secure backend and database before it can accept rentals or payments.";
+    }
+
+    document.getElementById("search").addEventListener("input", function () {
+      document.getElementById("results").innerHTML =
+        "<h3>No live listings connected</h3>" +
+        "<p>Your search: " +
+        escapeText(this.value || "All listings") +
+        ". Connect a real listing data source to search live results.</p>";
+    });
+
+    function escapeText(value) {
+      const div = document.createElement("div");
+      div.textContent = value;
+      return div.innerHTML;
+    }
+  </script>
+</body>
+</html>
